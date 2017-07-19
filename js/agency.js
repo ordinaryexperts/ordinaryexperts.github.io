@@ -49,7 +49,13 @@ $(function() {
   if (GetURLParameter('contacted') == '1') {
     $('#contacted-thanks').show();
   }
-  if (window.location.hash) {
-    scrollTo(window.location.hash);
+  var hash = window.location.hash;
+  if (hash) {
+    if (hash.startsWith('#portfolio-')) {
+      scrollTo('#portfolio');
+      $(hash).modal('toggle');
+    } else {
+      scrollTo(hash);
+    }
   }
 });
