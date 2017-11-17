@@ -58,4 +58,16 @@ $(function() {
       scrollTo(hash);
     }
   }
+
 });
+
+var portfolioClients = ['third-cousin', 'j1simcards'];
+var numPortfolioClients = portfolioClients.length;
+for (var i = 0; i < numPortfolioClients; i++) {
+  $('#portfolio-' + portfolioClients[i]).on('show.bs.modal', function () {
+    window.location.hash = '#' + this.id;
+  });
+  $('#portfolio-' + portfolioClients[i]).on('hide.bs.modal', function () {
+    window.location.hash = '#portfolio';
+  });
+}
